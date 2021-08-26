@@ -1,0 +1,14 @@
+.btn-absolute {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+}
+
+.remove-absolute {
+// position: absolute;
+bottom: 10px;
+right: 10px;
+  & :hover {
+  color:white
+}
+}

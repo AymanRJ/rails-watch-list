@@ -1,0 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/1597763.jpg);" >
+  <div class="container" >
+    <h1> Your lists </h1>
+    <%= link_to "Add new List", new_list_path, class:"btn btn-primary btn-absolute"%>
+  </div>
+</div>
+
+<div class="container" >
+
+  <div class="cards mt-3">
+    <% @lists.each do |list| %>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/3968039.jpg);">
+        <%= link_to list_path(list) do  %>
+          <%= list.name %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div>
