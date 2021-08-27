@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 puts 'destroying Movies DB...'
 Movie.destroy_all
+List.destroy_all
 puts 'Movies DB destroyed!!!!!!!!'
 
 10.times do
@@ -16,6 +19,13 @@ puts 'Movies DB destroyed!!!!!!!!'
     poster_url: 'https://source.unsplash.com/random',
     rating: rand(0.1..10).to_f.round(1)
   )
+  list = List.create(
+    name: Faker::Games::Pokemon.name
+  )
+  file = URI.open("https://source.unsplash.com/1600x900/?beach")
+  list.photo.attach(io: file, filename: 'movie.png', content_type: 'image/png')
+  list.save
+  sleep(3)
 end
 
-puts "you just created #{Movie.count} movies"
+puts "you just created #{Movie.count} fake movies and #{List.count} fake lists"

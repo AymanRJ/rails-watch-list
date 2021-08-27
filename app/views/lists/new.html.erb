@@ -1,4 +1,25 @@
-<%= simple_form_for(@list) do |f|  %>
-<%= f.input :name %>
-<%= f.submit %>
-<% end %>
+<div class="background-form" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://wallpaperaccess.com/full/1597763.jpg);">
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+      <div class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+     </div>
+      <div class="nav-item">
+        <%= link_to "Add new List", new_list_path, class:"btn btn-primary btn-absolute"%>
+      </div>
+
+  </div>
+
+
+  <div class="container container-flexed">
+
+    <div class = "form-list">
+    <%= simple_form_for(@list) do |f|  %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+    <% end %>
+    </div>
+  </div>
+</div>
